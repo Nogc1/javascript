@@ -15,47 +15,59 @@
             height: 100vh;
         }
 
-        div {
+        section {
             background-color: white;
             width: 300px;
             height: 300px;
             display: inline-block;
             box-shadow: 2px 2px 10px black;
         }
-        
+
+        div {
+            padding: 10px;
+        }
+
         strong {
             font-size: 20px;
         }
     </style>
 </head>
-<body>
+<body onload="carregar()">
     <header>
         <h1>Hora do Dia</h1>
     </header>
-    <main>
-        <div>
-            <p id="hora">
-                
-            </p>
+    
+    <section>
+        <div id="hora">
             
         </div>
-    </main>
+        <div id="foto">
+            <img id="imagem" src="imagens/manhã.png" alt="Foto do dia">
+        </div>
+    </section>
+    
     <script>
-        var agora = new Date()
-        var hora = agora.getHours()
-        var minuto = agora.getMinutes()
-        var txt = document.querySelector('p#hora')
-        var tempo = ''
+        function carregar() {
+            var agora = new Date()
+            var hora = agora.getHours()
+            var minuto = agora.getMinutes()
+            var txt = document.querySelector('div#hora')
+            var img = document.querySelector('img#imagem')
+            var tempo = ''
 
-        if (hora < 12) {
-            tempo = 'Manhã'
-        } else if (hora > 18) {
-            tempo = 'Noite'
-        } else {
-           tempo = 'Tarde'
+            if (hora < 12) {
+                tempo = 'Manhã'
+                img.src = 'imagens/manhã.png'
+            } else if (hora > 18) {
+                tempo = 'Noite'
+                img.src = 'imagens/noite.png'
+            } else {
+                tempo = 'Tarde'
+                img.src = 'imagens/tarde.png'
+            }
+
+            txt.innerHTML = `Agora são <strong>${hora}:${minuto}</strong> da ${tempo}`
         }
-
-        txt.innerHTML = `Agora são <strong>${hora}:${minuto}</strong> da ${tempo}`
     </script>
 </body>
 </html>
