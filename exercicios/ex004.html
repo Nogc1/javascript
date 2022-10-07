@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <style>
+        body {
+            background-color: cadetblue;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        section {
+            background-color: white;
+            display: block;
+            margin: auto;
+            width: 500px;
+            box-shadow: 2px 2px 10px black;
+        }
+
+        p {
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+
+        input#homem {
+            padding: 15px;
+        }
+
+        div {
+            padding-left: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificador de Idade</h1>
+    <section>
+        <p>Ano de Nascimento <input type="number" name="num" id="num"></p>
+        <p>Sexo: = Masculino <input type="checkbox" name="sexo" id="homem" value="masculino"> Feminino <input type="checkbox" name="sexo" id="mulher" value="mulher"></p>
+        <p><input type="button" value="Verificar" onclick="verificar()"></p>
+        
+
+        <div id="foto">
+            <p>Preencha os dados acima para ver o resultado!</p>
+        </div>
+    </section>
+
+
+    <script>
+        function verificar() {
+            var data = new Date()
+            var ano = data.getFullYear()
+            var anoDeNascimento = document.getElementById('num').value
+            var sexoM = document.getElementById('homem')
+            var sexoF = document.getElementById('mulher')
+            var idade = ano - anoDeNascimento
+            var img = document.querySelector('div#foto')
+            var sexo = ''
+            if (sexoM.checked) {
+                sexo = 'Homem'
+
+            } else {
+                sexo = 'Mulher'
+            }
+
+            img.innerHTML = `Detectamos ${sexo} com ${idade} anos.`
+        }
+    </script>
+</body>
+</html>
