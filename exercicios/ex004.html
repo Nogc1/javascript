@@ -46,8 +46,12 @@
         <p>Sexo: = Masculino <input type="checkbox" name="sexo" id="homem" value="masculino"> Feminino <input type="checkbox" name="sexo" id="mulher" value="mulher"></p>
         <p><input type="button" value="Verificar" onclick="verificar()"></p>
         
+        <div id="txt">
+
+        </div>
 
         <div id="foto">
+            <img id="imagem" src="" alt="">
             <p>Preencha os dados acima para ver o resultado!</p>
         </div>
     </section>
@@ -58,19 +62,52 @@
             var data = new Date()
             var ano = data.getFullYear()
             var anoDeNascimento = document.getElementById('num').value
+            
+
             var sexoM = document.getElementById('homem')
             var sexoF = document.getElementById('mulher')
             var idade = ano - anoDeNascimento
-            var img = document.querySelector('div#foto')
-            var sexo = ''
+            var sexo = '' 
+            
+
+            var txt = document.querySelector('div#txt')
+            var img = document.querySelector('img#imagem')
+           
+
+
             if (sexoM.checked) {
                 sexo = 'Homem'
-
-            } else {
+                if (idade < 14) {
+                    img.src = 'imagens/criançaM.png'
+                } 
+                else if (14 < idade < 18) {
+                    img.src = 'imagens/jovemM.png'
+                } 
+                else if (18 < idade < 50) {
+                    img.src = 'imagens/adultoM.png'
+                } 
+                else if (idade > 50) {
+                    img.src = 'imagens/idosoM.png'
+                }
+            }  
+            else {
                 sexo = 'Mulher'
+                if (idade < 14) {
+                    img.src = 'imagens/criançaF.png'
+                } 
+                else if (14 < idade < 18) {
+                    img.src = 'imagens/jovemF.png'
+                } 
+                else if (18 < idade < 50) {
+                    img.src = 'imagens/adultoF.png'
+                } 
+                else if (idade > 50) {
+                    img.src = 'imagens/idosoF.png'
+                }   
             }
 
-            img.innerHTML = `Detectamos ${sexo} com ${idade} anos.`
+
+            txt.innerHTML = `Detectamos ${sexo} com ${idade} anos.`
         }
     </script>
 </body>
