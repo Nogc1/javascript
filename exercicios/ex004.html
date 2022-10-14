@@ -63,12 +63,14 @@
             var ano = data.getFullYear()
             var anoDeNascimento = document.getElementById('num').value
             
-
-            var sexoM = document.getElementById('homem')
-            var sexoF = document.getElementById('mulher')
-            var idade = ano - anoDeNascimento
-            var sexo = '' 
-            
+            if (anoDeNascimento.lenght == 0 || anoDeNascimento > ano) {
+                window.alert('[ERRO] Verifique os dados e tente novamente!')
+            } else {
+                var sexoM = document.getElementById('homem')
+                var sexoF = document.getElementById('mulher')
+                var idade = ano - anoDeNascimento
+                var sexo = ''
+            }
 
             var txt = document.querySelector('div#txt')
             var img = document.querySelector('img#imagem')
@@ -77,31 +79,28 @@
 
             if (sexoM.checked) {
                 sexo = 'Homem'
-                if (idade < 14) {
+                if (idade < 10) {
                     img.src = 'imagens/criançaM.png'
                 } 
-                else if (14 < idade < 18) {
+                else if (idade > 10 && idade < 25) {
                     img.src = 'imagens/jovemM.png'
                 } 
-                else if (18 < idade < 50) {
+                else if (idade > 25 && idade < 60) {
                     img.src = 'imagens/adultoM.png'
                 } 
-                else if (idade > 50) {
+                else if (idade > 60) {
                     img.src = 'imagens/idosoM.png'
                 }
             }  
             else {
                 sexo = 'Mulher'
-                if (idade < 14) {
+                if (idade < 10) {
                     img.src = 'imagens/criançaF.png'
-                } 
-                else if (14 < idade < 18) {
+                } else if (idade >= 10 && idade < 25) {
                     img.src = 'imagens/jovemF.png'
-                } 
-                else if (18 < idade < 50) {
+                } else if (idade > 25 && idade <= 60) {
                     img.src = 'imagens/adultoF.png'
-                } 
-                else if (idade > 50) {
+                } else {
                     img.src = 'imagens/idosoF.png'
                 }   
             }
