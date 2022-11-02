@@ -10,27 +10,25 @@
 <body>
     <h1>Vamos contar</h1>
     <form action="" autocomplete="off">
-        <label for="inicio">
+        <label for="iinicio">
             Início:
-            <input type="number" name="inicio" id="inicio">
-        </label> <br>
+        </label>  
+        <input type="number" name="inicio" id="iinicio" required> <br>
         <label for="passo">
             Passo:
-            <input type="number" name="passo" id="passo">
-        </label> <br>
+        </label> 
+        <input type="number" name="passo" id="passo"> <br>
         <label for="final">
             Final:
-            <input type="number" name="final" id="final">
-        </label> <br>
+        </label> 
+        <input type="number" name="final" id="final" required> <br>
 
         <input type="button" value="Enviar" onclick="contar()">
-    </form>
-
-    <section>
         <div id="txt">
-
+            <p>Preparando Contagem...</p>
         </div>
-    </section>
+        
+    </form>
 
     <!--
         Código em Javascript
@@ -41,7 +39,7 @@
 
     <script>
         function contar() {
-            var Inicio = document.getElementById('inicio').value
+            var Inicio = document.getElementById('iinicio').value
             var Passo = document.getElementById('passo').value
             var fim = document.getElementById('final').value
             var txt = document.getElementById('txt')
@@ -53,7 +51,8 @@
             //Incompleto. Precisa criar um <p> novo a cada vez que rodar o loop, dentro da <div> para aparecer a contagem
 
             for (var n = Inicio; n <= fim; n++) {
-                txt.innerHTML = `${n}`
+                //Resolvido com +=
+                txt.innerHTML += `${n}, `
             }
             
         }
