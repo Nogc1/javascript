@@ -9,6 +9,52 @@
 </head>
 <body>
     <h1>Tabuada</h1>
-    <input type="number" name="" id="">
+    <section>
+        <form action="">
+            <p>
+                <label for="inum">Insira um número:</label>
+                <input type="number" name="num" id="inum" required>
+            </p>
+            <div id="txt">
+
+            </div>
+            <p>
+                <input type="button" value="Enviar" onclick="tabuada()">
+                <input type="reset" value="Limpar" onclick="limpar()">
+            </p>
+        </form>
+    </section>
+
+    <!--
+        Código em Javascript
+                |
+                |
+                V
+    -->
+
+    <script>
+        function tabuada() {
+            var num = document.getElementById('inum').value
+            var txt = document.getElementById('txt')
+            var dez = 1
+
+            if (num <= 0) {
+                txt.innerHTML = (`[ERRO] O número dígitado tem que ser maior do que ${num}`)
+            } 
+            else {
+                txt.innerHTML = ''
+                for (num; dez < 11; dez++) {
+                    var res = num * dez
+                    txt.innerHTML += `${num} x ${dez} = ${res}<br>`
+                }
+            }
+
+        }
+
+        function limpar() {
+            var txt = document.getElementById('txt')
+            txt.innerHTML = ''
+        }
+    </script>
 </body>
 </html>
