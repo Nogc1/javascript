@@ -20,3 +20,22 @@ section {
     margin: auto;
     border-radius: 20px 20px;
 }
+
+div#botao {
+    color: black;
+    background-color: rgb(212, 212, 212);
+    margin: auto;
+    display: block;
+    border: solid gray;
+    width: 200px;
+    height: 50px;
+}
+
+div#botao:hover {
+    background-color: rgb(182, 180, 180);
+    border: solid rgb(104, 104, 104);
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    display: block;
+}

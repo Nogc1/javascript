@@ -4,12 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interagindo com um botão</title>
+    <title>Exercício 002</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        div#botao {
+            color: black;
+            background-color: rgb(212, 212, 212);
+            margin: auto;
+            display: block;
+            border: solid gray;
+            width: 200px;
+            height: 50px;
+        }
+
+        div#botao:hover {
+            background-color: rgb(182, 180, 180);
+            border: solid rgb(104, 104, 104);
+            width: 200px;
+            height: 50px;
+            margin: auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <div>
+    <h1>Interagindo com um botão</h1>
+    <div id="botao" onclick="clicou()">
         <p>Clique aqui para começar</p>
     </div>
+
+    <script>
+        function clicou() {
+            var txt = document.getElementById('botao')
+            txt.innerHTML = "<p>Você clicou!</p>"
+            window.alert('Você clicou em mim!')
+        }
+    </script>
 </body>
 </html>
