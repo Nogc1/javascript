@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Média do aluno v1.0</h1>
+
+    <div id="botao" onclick="calcular()">
+        <p>Calcular média</p>
+    </div>
+
+    <div id="res">
+        <p>O resultado vai aparecer aqui...</p>
+    </div>
+
+    <!--
+        Código em Javascript
+                |
+                |
+                V
+    -->
+
+    <script>
+        function calcular() {
+            var nome = window.prompt('Qual o nome do aluno?')
+            var nota1 = window.prompt(`Qual foi a nota de ${nome}? `)
+            var nota2 = window.prompt(`Qual foi a segunda nota? `)
+            var n1 = Number(nota1)
+            var n2 = Number(nota2)
+            var media = (n1 + n2) / 2
+            var res = document.getElementById('res')
+
+            res.innerHTML = `<p>Calculando a média do aluno <strong>${nome}</strong>...</p>`
+            res.innerHTML += `<p>A primeira nota foi <strong>${n1}</strong></p>`
+            res.innerHTML += `<p>A segunda nota foi <strong>${n2}</strong></p>`
+            res.innerHTML += `<p>A média do aluno foi <strong>${media}</strong></p>`
+        }
+    </script>
+</body>
+</html>
