@@ -39,3 +39,41 @@ div#botao:hover {
     margin: auto;
     display: block;
 }
+
+div#botao2 {
+    color: black;
+    background-color: rgb(212, 212, 212);
+    margin: auto;
+    display: block;
+    border: solid gray;
+    width: 200px;
+    height: 50px;
+}
+
+div#botao2:hover {
+    background-color: rgb(182, 180, 180);
+    border: solid rgb(104, 104, 104);
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    display: block;
+}
+
+div#botao3 {
+    color: black;
+    background-color: rgb(212, 212, 212);
+    margin: auto;
+    display: block;
+    border: solid gray;
+    width: 200px;
+    height: 50px;
+}
+
+div#botao3:hover {
+    background-color: rgb(182, 180, 180);
+    border: solid rgb(104, 104, 104);
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    display: block;
+}

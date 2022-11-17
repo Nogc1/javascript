@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Javascript Externo</h1>
+
+    <section>
+        <h2>Vamos jogar?</h2>
+        <label for="jogador">Jogador</label>
+        <input type="range" name="jogador" id="jogador" value="50" max="50"><br>
+        <label for="centomorfo">Centomorfo</label>
+        <input type="range" name="centomorfo" id="centomorfo" value="50" max="50">
+
+        <div id="res">
+
+        </div>
+        <div id="botao" onclick="atacar()">
+            <p>Atacar</p>
+        </div>
+        <div id="botao2" onclick="bloquear()">
+            <p>Bloquear</p>
+        </div>
+        <div id="botao3" onclick="esquivar()">
+            <p>Esquivar</p>
+        </div>
+    </section>
+
+    <!--
+        Código em Javascript
+                |
+                |
+                V
+    -->
+
+    <script>
+        var res = document.getElementById('res')
+
+        var jogador = 50
+        var vida_jog = document.getElementById('jogador')
+        var velocidade = d6()
+        var força = d6()
+        var defesa = Math.random() * (25 - 15) + 15
+        
+        var centomorfo = 50
+        var vida_cent = document.getElementById('centomorfo')
+        var defesa_cent = Math.random() * (19 - 10) + 10
+        var força_cent = d10()
+
+        function atacar() {
+            var dano = d20() + força
+
+            if (dano > defesa_cent) {
+                centomorfo - dano 
+                res.innerHTML += `<p>Você deu ${dano} de dano no inimigo!</p>`
+               
+            } 
+            else {
+                res.innerHTML += `<p>Você erra o ataque! :/ </p>`
+            }
+            
+        }
+
+        function bloquear() {
+            var dano = d20() + força_cent
+            
+            if (dano > defesa) {
+                jogador - dano
+
+                res.innerHTML += `<p>O inimigo acerta o ataque e você leva ${dano} pontos de dano!</p>`
+            } else {
+                res.innerHTML += `<p>Você bloqueia o ataque!</p>`
+            }
+        }
+
+        function esquivar() {
+            var dano = d20() + força_cent
+
+            if (velocidade == 6) {
+                var esquiva = d10() + d10() + d10() + d10() + d10() + d10() + d10()
+            } 
+            else if (velocidade == 5 ) {
+                var esquiva = d10() + d10() + d10() + d10() + d10() + d10()
+            }   
+            else if (velocidade == 4) {
+                var esquiva = d10() + d10() + d10() + d10() + d10()
+            }
+            else if (velocidade == 3) {
+                var esquiva = d10() + d10() + d10() + d10()
+            }
+            else if (velocidade == 2) {
+                var esquiva = d10() + d10() + d10()
+            }
+            else if (velocidade == 1) {
+                var esquiva = d10() + d10()
+            }
+            else {
+                var esquiva = d10()
+            }
+
+            if (esquiva > dano) {
+                res.innerHTML += `<p>Você se esquiva do ataque!</p>`
+            } 
+            else {
+                jogador - dano
+                res.innerHTML += `<p>O inimigo acerta o ataque e você leva ${dano} pontos de dano!</p>`
+            }
+        }
+
+        function d20() {
+            return Math.floor(Math.random() * (20 - 1) + 1)
+        }
+
+        function d10() {
+            return Math.floor(Math.random() * (10 - 1) + 1)
+        }
+
+        function d6() {
+            return Math.floor(Math.random() * (6 - 1) + 1)
+        }
+    </script>
+</body>
+</html>
