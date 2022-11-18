@@ -12,10 +12,6 @@
 
     <section>
         <h2>Vamos jogar?</h2>
-        <label for="jogador">Jogador</label>
-        <input type="range" name="jogador" id="jogador" value="50" max="50"><br>
-        <label for="centomorfo">Centomorfo</label>
-        <input type="range" name="centomorfo" id="centomorfo" value="50" max="50">
 
         <div id="res">
 
@@ -28,6 +24,15 @@
         </div>
         <div id="botao3" onclick="esquivar()">
             <p>Esquivar</p>
+        </div>
+
+        <p style="text-align: left;">Jogador</p>
+        <div id="jogador" style="text-align: left;">
+            <p>50</p>
+        </div>
+        <p style="text-align: left;">Centomorfo</p>
+        <div id="centomorfo" style="text-align: left;">
+            <p>50</p>
         </div>
     </section>
 
@@ -56,25 +61,37 @@
             var dano = d20() + força
 
             if (dano > defesa_cent) {
-                centomorfo - dano 
+                centomorfo = centomorfo - dano 
                 res.innerHTML += `<p>Você deu ${dano} de dano no inimigo!</p>`
-               
+                vida_cent.innerHTML = `<p>${centomorfo}</p>`
             } 
             else {
                 res.innerHTML += `<p>Você erra o ataque! :/ </p>`
             }
-            
+            if (centomorfo <= 0) {
+                res.innerHTML = '<p>Você venceu!! :)</p>'
+            } 
+            else if (jogador <= 0) {
+                res.innerHTML = '<p>Você perdeu! :(<p/>'
+            }
         }
 
         function bloquear() {
             var dano = d20() + força_cent
             
             if (dano > defesa) {
-                jogador - dano
+                jogador = jogador - dano
 
                 res.innerHTML += `<p>O inimigo acerta o ataque e você leva ${dano} pontos de dano!</p>`
+                vida_jog.innerHTML = `<p>${jogador}</p>`
             } else {
                 res.innerHTML += `<p>Você bloqueia o ataque!</p>`
+            }
+            if (centomorfo <= 0) {
+                res.innerHTML = '<p>Você venceu!! :)</p>'
+            } 
+            else if (jogador <= 0) {
+                res.innerHTML = '<p>Você perdeu! :(<p/>'
             }
         }
 
@@ -107,10 +124,25 @@
                 res.innerHTML += `<p>Você se esquiva do ataque!</p>`
             } 
             else {
-                jogador - dano
+                jogador = jogador - dano
                 res.innerHTML += `<p>O inimigo acerta o ataque e você leva ${dano} pontos de dano!</p>`
+                vida_jog.innerHTML = `<p>${jogador}</p>`
+            }
+            if (centomorfo <= 0) {
+                res.innerHTML = '<p>Você venceu!! :)</p>'
+            } 
+            else if (jogador <= 0) {
+                res.innerHTML = '<p>Você perdeu! :(<p/>'
             }
         }
+
+        if (centomorfo <= 0) {
+            res.innerHTML = '<p>Você venceu!! :)</p>'
+        } 
+        else if (jogador <= 0) {
+            res.innerHTML = '<p>Você perdeu! :(<p/>'
+        }
+        
 
         function d20() {
             return Math.floor(Math.random() * (20 - 1) + 1)
