@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>É par ou é ímpar?</h1>
+
+    <div id="botao" onclick="ParOuImpar()">
+        <p>Clique para iniciar</p>
+    </div>
+
+    <div id="res">
+        <p>O resultado vai aparecer aqui...</p>
+    </div>
+
+    <!--
+        Código em Javascript
+                |
+                |
+                V
+    -->
+
+    <script>
+        function ParOuImpar() {
+            var num = window.prompt('Dígite um número: ')
+            var res = document.getElementById('res')
+            var n = Number(num)
+
+            if (n % 2 == 0) {
+                res.innerHTML = `<p>O número ${n} que foi dígitado é <strong>PAR</strong></p>`
+            } else {
+                res.innerHTML = `<p>O número ${n} que foi dígitado é <strong>ÍMPAR</strong></p>`
+            }
+
+        }
+    </script>
+</body>
+</html>

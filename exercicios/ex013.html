@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 13</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Maior Valor</h1>
+
+    <div id="botao" onclick="maior()">
+        <p>Clique aqui para começar</p>
+    </div>
+
+    <div id="res">
+        <p>O resultado vai aparecer aqui...</p>
+    </div>
+
+    <!--
+        Código em Javascript
+                |
+                |
+                V
+    -->
+
+    <script>
+        function maior() {
+            var n = window.prompt('Dígite um número: ')
+            var num = window.prompt('Dígite outro número: ')
+            var n1 = Number(n)
+            var n2 = Number(num)
+            var res = document.getElementById('res')
+
+            if (n1 > n2) {
+                res.innerHTML = `<p>Analisando os valores ${n1} e ${n2}, o maior valor é ${n1}</p>`
+            } else if (n2 > n1) {
+                res.innerHTML = `<p> Analisando os valores ${n1} e ${n2}, o maior valor é ${n2} </p>`
+            } else {
+                res.innerHTML = `<p> Analisando os valores ${n1} e ${n2}, os valores são iguais </p>`
+            }
+        }
+    </script>
+</body>
+</html>
