@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 15</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Analisando data e hora do Sistema</h1>
+
+    <div id="botao" onclick="analise()">
+        <p>Iniciar análise</p>
+    </div>
+
+    <div id="res">
+        <p>Aqui vai aparecer algo...</p>
+    </div>
+
+    <!--
+        Código em Javascript
+                |
+                |
+                V
+    -->
+
+    <script>
+        function analise() {
+            var data = new Date()
+            var dsemana = data.getDay()
+            var mes = data.getMonth()
+            var ano = data.getFullYear()
+            var dia = data.getDate()
+            var hora = data.getHours()
+            var minuto = data.getMinutes()
+            var segundos = data.getSeconds()
+            var res = document.getElementById('res')
+            var Mes = ''
+            res.innerHTML = `<p>Dia: ${dia}</p>`
+
+            if (mes == 0) {
+                Mes = 'Jan'
+            } 
+            else if (mes == 1) {
+                Mes = 'Fev'
+            }
+            else if (mes == 2) {
+                Mes = 'Mar'
+            }
+            else if (mes == 3) {
+                Mes = 'Abr'
+            }
+            else if (mes == 4) {
+                Mes = 'Maio'
+            }
+            else if (mes == 5) {
+                Mes = 'Jun'
+            }
+            else if (mes == 6) {
+                Mes = 'Jul'
+            }
+            else if (mes == 7) {
+                Mes = 'Ago'
+            }
+            else if (mes == 8) {
+                Mes = 'Set'
+            }
+            else if (mes == 9) {
+                Mes = 'Out'
+            }
+            else if (mes == 10) {
+                Mes = 'Nov'
+            }
+            else if (mes == 11) {
+                Mes = 'Dez'
+            }
+
+            res.innerHTML += `<p>Mês: ${Mes}</p>`
+            res.innerHTML += `<p>Ano: ${ano}</p>`
+
+            var dsem = ''
+
+            if (dsemana == 0) {
+                dsem = 'Dom'
+            }
+            else if (dsemana == 1) {
+                dsem = 'Seg'
+            }
+            else if (dsemana == 2) {
+                dsem = 'Ter'
+            }
+            else if (dsemana == 3) {
+                dsem = 'Qua'
+            }
+            else if (dsemana == 4) {
+                dsem = 'Qui'
+            }
+            else if (dsemana == 5) {
+                dsem = 'Sex'
+            }
+            else if (dsemana == 6) {
+                dsem = 'Sáb'
+            }
+
+            res.innerHTML += `<p>Dia da Semana: ${dsem}</p>`
+            res.innerHTML += `<p>Hora: ${hora}</p>`
+            res.innerHTML += `<p>Minutos: ${minuto}</p>`
+            res.innerHTML += `<p>Segundos: ${segundos}</p>`
+
+        }
+    </script>
+</body>
+</html>

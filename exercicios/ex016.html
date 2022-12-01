@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 16</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Calculando idade</h1>
+
+    <div id="botao" onclick="calc()">
+        <p>Iniciar</p>
+    </div>
+
+    <div id="res">
+        <p>Aqui vai aparecer algo...</p>
+    </div>
+
+    <!--
+        Código em Javascript
+                |
+                |
+                V
+    -->
+
+    <script>
+        function calc() {
+            var data = new Date()
+            var ano = data.getFullYear()
+            var nasc = window.prompt('Em que ano você nasceu? ')
+            var nascimento = Number(nasc)
+            var idade = ano - nascimento
+            var res = document.getElementById('res')
+
+            res.innerHTML = `<p>Quem nasceu em ${nasc} vai completar ${idade} anos em ${ano}. </p>`
+        }
+    </script>
+</body>
+</html>
