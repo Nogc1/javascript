@@ -11,5 +11,29 @@
     <h1>Gerador de Números</h1>
 
     <button type="submit" onclick="gerar_num()">Clique em mim</button>
+    <input type="reset" value="Limpar" onclick="limpar()">
+
+    <div id="res">
+        <p>Cada vez que você apertar o botão acima, eu rolo um dado de 100 lados e te falo o que caiu.</p>
+    </div>
+
+    <!--
+        Código em Javascript
+                |
+                |
+                V
+    -->
+
+    <script>
+        var res = document.getElementById('res')
+        function gerar_num() {
+            var num = Math.floor(Math.random() * (100 - 1) + 1)
+            res.innerHTML += `<p>Caiu no número <strong>${num}</strong>! </p>`
+        }
+
+        function limpar() {
+            res.innerHTML = '<p>Cada vez que você apertar o botão acima, eu rolo um dado de 100 lados e te falo o que caiu.</p>'
+        }
+    </script>
 </body>
 </html>
