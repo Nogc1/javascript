@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Descubra a estação do ano</h1>
-    <button type="submit" onclick="estacao()">Informe o mês aqui</button>
+    <button type="submit" onclick="verificar()">Informe o mês aqui</button>
     <div id="res">
         <p>Clique no botão acima para informar o mês.</p>
     </div>
@@ -22,13 +22,53 @@
     -->
 
     <script>
-        function estacao() {
+        function verificar() {
             var mes = window.prompt('Dígite o mês por extenso (ex: Setembro)')
             var res = document.getElementById('res')
+            var estaçao = ''
 
-            if () {
-                
+            switch (mes.toLowerCase()) {
+                case 'janeiro' || '1':
+                    estaçao = 'Verão'
+                    break
+                case 'fevereiro' || '2':
+                    estaçao = 'Verão'
+                    break
+                case 'março' || '3':
+                    estaçao = 'Outono'
+                    break
+                case 'abril' || '4': 
+                    estaçao = 'Outono'
+                    break
+                case 'maio' || '5': 
+                    estaçao = 'Outono'
+                    break
+                case 'junho' || '6':
+                    estaçao = 'Inverno'
+                    break
+                case 'julho' || '7':
+                    estaçao = 'Inverno'
+                    break
+                case 'agosto' || '8':
+                    estaçao = 'Inverno'
+                    break
+                case 'setembro' || '9':
+                    estaçao = 'Primavera'
+                    break
+                case 'outubro' || '10':
+                    estaçao = 'Primavera'
+                    break
+                case 'novembro' || '11':
+                    estaçao = 'Primavera'
+                    break
+                case 'dezembro' || '12':
+                    estaçao = 'Verão'
+                    break
+                default: 
+                   estaçao = 'INDEFINIDO'
+                   break
             }
+            res.innerHTML = `<p> Mês de ${mes}. Nós estamos no ${estaçao} </p>`
         }
     </script>
 </body>
