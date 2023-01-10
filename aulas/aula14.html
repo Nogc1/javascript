@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: blueviolet;
+            border: solid black;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="res" onclick="dia_semana()">
+        <p>Clique</p>
+    </div>
+</body>
+</html>
+<script>
+    var res = document.getElementById('res')
+    function dia_semana() {
+        var semana = ['Segunda', 'Terça', 'Quinta', 'Friday', 'Domingo']
+        var res = document.getElementById('res')
+
+        res.innerHTML += `<p> ${semana} </p>`
+        semana.push('Monday')
+        semana.push('Sunday')
+        semana.sort()
+        res.innerHTML += `<p> ${semana} </p>`
+    }
+</script>
+    
