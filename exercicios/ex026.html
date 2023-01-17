@@ -5,8 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Analisador de números</h1>
+    <h1>Analisador de Números</h1>
+    <section>
+        <div id="num">
+            <label for="n">Número entre 1 e 100:</label>
+            <input type="number" name="n" id="n">
+            <input type="submit" value="Adicionar" onclick="analisar()">
+        </div>
+        <div>
+            <output value="list" id="lista">
+                
+            </output>
+        </div>
+        <div id="res">
+            <p>'-'</p>
+        </div>
+    </section>
+
+    <!-- 
+        Código em Javascript
+                |
+                |
+                V
+     -->
+
+    <script>
+        // lista com os valores
+        let valores = []
+
+        // Inicia a análise dos dados passados
+        function analisar() {
+
+            // Váriaveis
+            let lista = document.getElementById('lista')
+            let res = document.getElementById('res')
+            let num = document.getElementById('n').value
+            let quant = valores.length
+
+            // Adiciona os valores na lista e os mostra na tela
+            valores.push(num)
+            lista.innerHTML += `<p>Você adicionou o número ${valores[quant]}</p>`
+
+            // Análise dos dados
+            
+        }
+    </script>
 </body>
 </html>
