@@ -20,6 +20,7 @@
                 
             </output>
         </div>
+        <input type="button" value="Finalizar" onclick="estatísticas()">
         <div id="res">
             <p>'-'</p>
         </div>
@@ -33,24 +34,45 @@
      -->
 
     <script>
-        // lista com os valores
-        let valores = []
 
+        // lista vazia
+        let valores = ['']
+        var quant = valores.length
+        let maior = 0
+        let menor = 100
         // Inicia a análise dos dados passados
         function analisar() {
 
             // Váriaveis
             let lista = document.getElementById('lista')
-            let res = document.getElementById('res')
-            let num = document.getElementById('n').value
-            let quant = valores.length
-
-            // Adiciona os valores na lista e os mostra na tela
-            valores.push(num)
-            lista.innerHTML += `<p>Você adicionou o número ${valores[quant]}</p>`
+            let num = Number(document.getElementById('n').value)
 
             // Análise dos dados
-            
+            if (valores.indexOf(num) == true || num > 100) {
+
+                // Mostra uma mensagem caso o número dígitado já esteja na lista
+                window.alert('Você já adicionou esse número! Tente outro.  ;)')
+            } 
+            else {
+
+                // Adiciona os valores na lista e os mostra na tela
+                valores.push(num)
+                lista.innerHTML += `<p>Você adicionou o número ${num}</p>`
+            }
+
+            // if (menor > num) {
+            //     menor = num
+            // }
+
+            // if (maior < num) {
+            //     maior = num
+            // }
+        }
+
+        function estatísticas() {
+            let res = document.getElementById('res')
+            res.innerHTML = `<p> Ao todo você adicionou ${quant} números na lista.</p>`
+            res.innerHTML += `<p> O maior número dígitado foi ${maior} </p>`
         }
     </script>
 </body>
