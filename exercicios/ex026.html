@@ -47,7 +47,7 @@
             <input type="submit" value="Adicionar" id="enviar" onclick="analisar()"> <br>
             <select name="lista" id="list" size="6"></select>
         </div>
-        <input type="button" value="Finalizar" onclick="estatísticas()">
+        <input type="button" value="Finalizar" id="but" onclick="estatísticas()">
         <div id="res">
             <p>'-'</p>
         </div>
@@ -68,10 +68,9 @@
         let lista = document.getElementById('list')
         let maior = num.value
         var min = num
-        let dig = 0
         let soma = 0
-        let media = soma / dig 
         var valores = []
+
         // Inicia a análise 
         function analisar() {
 
@@ -82,8 +81,7 @@
             else {
                 valores.push(num.value)
                 lista.innerHTML += `<option>${num.value}</option>`
-                soma = soma + num.value
-                dig += 1
+                soma += Number(num.value)
                 
                 // Verifica qual é o maior número dígitado 
                 if (maior < num.value) {
@@ -99,6 +97,7 @@
                     min = min
                 }
             }
+            num.value = ''
         }
 
         // Verifica se o número já existe na lista
@@ -113,11 +112,19 @@
 
         // Inicia as estatísticas
         function estatísticas() {
+            let subm = document.getElementById('enviar')
+            let media = soma / valores.length
+            let but = document.getElementById('but')
+
+            subm.disabled = true
+            but.disabled = true
+            
             res.innerHTML = `<p> Ao todo você adicionou ${valores.length} números na lista.</p>`
             res.innerHTML += `<p> O maior número dígitado foi ${maior}.</p>`
             res.innerHTML += `<p> O menor número dígitado foi ${min}.</p>`
             res.innerHTML += `<p> A soma de todos os números dígitados é ${soma}.</p>`
-            res.innerHTML += `<p> A média dos núemros dígitados é  ${media}.</p>`
+            res.innerHTML += `<p> A média dos números dígitados é ${media.toFixed(2)}.</p>`
+
         }
     </script>
 </body>
