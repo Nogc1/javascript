@@ -79,23 +79,16 @@
                 window.alert('Você já adicionou esse número! Tente outro.  ;)')
             } 
             else {
+                // Verifica qual é o maior número dígitado 
+                if (num.value > maior) {
+                    maior = num.value
+                }
+                if (num.value < min) {
+                    min = num.value
+                }
                 valores.push(num.value)
                 lista.innerHTML += `<option>${num.value}</option>`
                 soma += Number(num.value)
-                
-                // Verifica qual é o maior número dígitado 
-                if (maior < num.value) {
-                    maior = num.value
-                } 
-                else {
-                    maior = maior
-                }
-                if (min > num.value) {
-                    min = num.value
-                } 
-                else {
-                    min = min
-                }
             }
             num.value = ''
         }
